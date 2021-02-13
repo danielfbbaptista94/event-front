@@ -1,7 +1,8 @@
 
-<div class="headerClass">
+
+<div *ngIf="mostrarMenu" class="headerClass">
   <mat-toolbar color="primary">
-    <span><mat-icon>language</mat-icon> App-Login</span>
+    <span><mat-icon>event</mat-icon> EventsAPP</span>
 
     <div class="spacer"></div>
 
@@ -9,10 +10,6 @@
     <a mat-button routerLink="register">Register</a>
   </mat-toolbar>
 </div>
-
-<!-- <div class="bodyClass">
-  <app-login></app-login>
-</div> -->
 
 
 <div class="footerClass">

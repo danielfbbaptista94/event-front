@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from './login/service/login.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'event-front';
+  mostrarMenu:boolean = false;
+
+  constructor(private loginService: LoginService){}
+
+  ngOnInit(): void {
+    this.loginService.mostrarMenuEmitter.subscribe(
+      mostrar => this.mostrarMenu = mostrar
+    );
+  }
 }

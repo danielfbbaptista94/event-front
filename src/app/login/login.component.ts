@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { LoginDTO } from './modal/loginDTO';
+import { LoginService } from './service/login.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +12,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginDTO: LoginDTO;
+  loginForm: FormGroup;
+
+  constructor(
+    private loginService: LoginService,
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    this.clearForm();
+    this.buildForm();
   }
 
+  clearForm() {
+    this.loginDTO = {
+      username: null,
+      password: null
+    };
+  }
+
+  buildForm() {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+    })
+  }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  submit() {
+    console.log(this.loginDTO);
+    this.loginService.submit(this.loginDTO);
+  }
 }

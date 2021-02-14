@@ -27,7 +27,7 @@ export class LoginService {
         (success) => {
           this.userAuthenticated = true;
           this.mostrarMenuEmitter.emit(true);
-          this.toastr.success("Success", "User register with success !");
+          this.router.navigate(['subscribers']);
         },
         (error) => {
           this.userAuthenticated = false;
@@ -39,5 +39,11 @@ export class LoginService {
 
   userAuth() {
     return this.userAuthenticated;
+  }
+
+  logout() {
+    this.userAuthenticated = false;
+    this.mostrarMenuEmitter.emit(false);
+    this.router.navigate(['login']);
   }
 }

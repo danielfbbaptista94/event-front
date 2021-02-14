@@ -6,8 +6,32 @@
 
     <div class="spacer"></div>
 
-    <a mat-button routerLink="login">Login</a>
-    <a mat-button routerLink="register">Register</a>
+    <a
+     mat-button
+     routerLink="events"
+    >Events</a>
+    <a
+     mat-button
+     routerLink="subscribers"
+    >My Subscribers</a>
+    <a
+     mat-button
+     routerLink="subscribers"
+    >Profile</a>
+    <a
+     mat-button
+     (click)="logout()"
+    >LogOut<mat-icon>logout</mat-icon> </a>
+    <a
+     mat-button
+     routerLink="login"
+     *ngIf="!mostrarMenu"
+    >Login</a>
+    <a
+     mat-button
+     routerLink="register"
+     *ngIf="!mostrarMenu"
+    >Register</a>
   </mat-toolbar>
 </div>
 

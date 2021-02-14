@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.loginDTO);
     this.loginService.submit(this.loginDTO);
   }
 }

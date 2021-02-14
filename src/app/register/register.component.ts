@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
       email: null,
       username: null,
       password: null,
-      status: false,
+      status: true,
       age: null,
     };
   }
@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
       email: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
-      status: [false],
+      status: [true],
       age: [Validators.required],
     })
   }
